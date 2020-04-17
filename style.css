@@ -1,0 +1,265 @@
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    
+    section {
+        height: 100vh;
+        background: darkblue;
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400%;
+        animation: anim 15s linear infinite;
+    }
+    
+    .svg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        transform: scale(0.6);
+        transition: all 2s;
+    }
+    
+    #leftwheel,
+    #rightwheel {
+        animation: rotate 1s linear infinite;
+        transform-origin: center;
+        transform-box: fill-box;
+    }
+    
+    #body {
+        animation: rotate1 2s ease-in-out infinite;
+        transform-origin: center;
+        transform-box: fill-box;
+        transform: rotate(0deg);
+    }
+#body:hover {
+	cursor: alias;
+      animation-play-state: paused;        
+}
+    /* #manonbike {} */
+    
+    #background {
+        display: none;
+    }
+    
+    @keyframes rotate {
+        to {
+            transform: rotateZ(360deg);
+        }
+    }
+    
+    @keyframes rotate1 {
+        from {
+            transform: translateY(0%) rotate(2deg);
+        }
+        to {
+            transform: translateY(-2%) rotate(-20deg);
+        }
+    }
+    
+    nav {
+        height: 10vh;
+        width: 100%;
+        display: flex;
+        box-shadow: 2px 2px 20px 2px grey;
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400%;
+        animation: anim 15s linear infinite;
+    }
+    
+    @keyframes anim {
+        0% {
+            background-position: 0%;
+        }
+        50% {
+            background-position: 50%;
+        }
+        100% {
+            background-position: 100%;
+        }
+    }
+    
+    .nav-links {
+        display: flex;
+        height: 100%;
+        width: 50%;
+        justify-content: space-around;
+        align-items: center;
+        margin-left: auto
+    }
+    
+    .nav-links a,
+    .nav-links li {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        text-decoration: none;
+        list-style: none;
+        color: gold;
+        letter-spacing: 2px;
+        font-weight: bolder;
+        transition: all 2s;
+    }
+    
+    .nav-links li::after {
+        content: "";
+        display: block;
+        position: relative;
+        top: 0;
+        left: 45%;
+        margin-top: 10px;
+        width: 10px;
+        height: 3px;
+        opacity: 0;
+        background: red;
+        transition: all 0.5s ease;
+    }
+    
+    .nav-links li::before {
+        content: "";
+        display: block;
+        position: relative;
+        top: 0;
+        left: 45%;
+        width: 10px;
+        opacity: 0;
+        height: 3px;
+        transform: scaleX(9);
+        border-radius: 3px;
+        background: goldenrod
+    }
+    
+    .nav-links li:hover::before {
+        opacity: 1;
+        animation: move 3s linear;
+    }
+    
+    @keyframes move {
+        0% {
+            left: 45%;
+            top: 0%
+        }
+        25% {
+            transform: rotate(360deg);
+            left: 100%;
+            top: 100%
+        }
+        50% {
+            transform: rotate(90deg);
+            left: 100%;
+            top: 30px;
+        }
+        75% {
+            transform: rotate(-90deg);
+            left: -40%;
+            top: 30px;
+        }
+        100% {
+            transform: rotate(360deg);
+            left: -20%;
+            top: 0;
+        }
+    }
+    
+    #button {
+        position: fixed;
+        top: 3%;
+        padding: 10px;
+        border-radius: 30%;
+        right: 0;
+        margin-right: 5px;
+        cursor: pointer;
+        border: 0;
+        font-family: fantasy;
+        background-color: black;
+    }
+    
+    #button:hover {
+        filter: sepia(100%)
+    }
+    /* .nav-links li:hover::before {} */
+    
+    @media screen and (max-width:768px) {
+        .btn {
+            position: absolute;
+            top: 3%;
+            left: 1%;
+            cursor: pointer;
+            transform: translate(0%);
+        }
+        .icon-bar {
+            width: 30px;
+            height: 5px;
+            cursor: pointer;
+            margin: 5px;
+            background: black;
+        }
+        .nav-links {
+            transition: all 2s;
+            position: absolute;
+            flex-direction: column;
+            height: 90vh;
+            width: 45%;
+            top: 10vh;
+            left: -50%;
+            align-items: center;
+            justify-content: space-around;
+            transform: translate(0%, 0%);
+            box-shadow: 2px 2px 20px 2px grey;
+        }
+        .open {
+            transform: translate(100%, 0%);
+            background: linear-gradient(orange, white);
+            opacity: 0.8;
+        }
+        .nav-links li a {
+            color: black;
+        }
+        .nav-links li::before {
+            background: darkblue
+        }
+        .svg {
+            transition: all 2s;
+            position: relative;
+        }
+    }
+    
+     ::-webkit-scrollbar {
+        width: 10px;
+        height: 20px;
+    }
+    
+     ::-webkit-scrollbar-thumb {
+        background: linear-gradient( transparent, aqua);
+        border-radius: 10px;
+    }
+    
+     ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient( transparent, blue);
+    }
+    
+     ::-webkit-scrollbar-track {
+        background-color: grey;
+    }
+    
+    .home,
+    .project,
+    .about {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+        color: white;
+        font-family: monospace;
+        background: rgb(17, 34, 51);
+    }
+    
+    .anim {
+        opacity: 0;
+        transition: all 4s;
+    }
+    
+    .transition-fade {
+        opacity: 1;
+        background: rgb(17, 34, 51);
+    }
